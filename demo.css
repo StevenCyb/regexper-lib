@@ -102,7 +102,10 @@ svg {
 
 /* Interaction stuff */
 #zoom {
+	min-height: 100vh;
+	min-width: 100vw;
   transform-origin: 0px 0px;
   transform: scale(1) translate(0px, 0px);
   cursor: grab;
+	user-select: none;
 }
