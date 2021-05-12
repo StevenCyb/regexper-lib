@@ -5,6 +5,20 @@ var scale = 1,
     start = { x: 0, y: 0 },
     zoom = document.getElementById("zoom");
 
+function fitZoom() {
+  var svg = zoom.getElementsByTagName('svg')[0],
+      svgRect = svg.getBBox();
+  
+  var fitScale = Math.min(
+    zoom.offsetHeight / svgRect.height,
+    zoom.offsetWidth / svgRect.width,
+  );
+
+  // Set the fitting scale but remove 1% as buffer
+  scale = fitScale * 0.99; 
+  setTransform();
+}
+
 function setTransform() {
   zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
 }

@@ -14,7 +14,8 @@
   <div id="zoom">
     <svg id="diagram"></svg>
   </div>
-  
+
+  <script src="interact.js"></script>
   <script>
     var expression = `^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?$`;
     
@@ -25,6 +26,8 @@
         svg, 
         function(isLoading) {
           if(!isLoading) {
+            fitZoom();
+
             svg.style.opacity = '1';
             progress.style.opacity = '0';
 
@@ -45,7 +48,5 @@
         console.error(message);
       });
   </script>
-
-  <script src="interact.js"></script>
 </body>
 </html>
